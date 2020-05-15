@@ -46,7 +46,7 @@ add_event_handler('loc_end_page_tail', 'pft');
 function pft()
  {
 	global $page;
-   if ((script_basename() != 'admin') and ($page['body_id'] != 'thePopuphelpPage'))
+  if ((script_basename() != 'admin') and (isset($page['body_id']) and $page['body_id'] != 'thePopuphelpPage')){
   {
 	global $template, $conf;
 $PAED = pwg_db_fetch_assoc(pwg_query("SELECT state FROM " . PLUGINS_TABLE . " WHERE id = 'ExtendedDescription';"));
